@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;700&display=swap');
+
+body {
+    --text-color: #aaa;
+    --bkg-color: #293C4B;
+    --btn-txt-color: rgb(46, 43, 43);
+    --btn-bg-color: rgb(20, 211, 195);
+
+    color: var(--text-color);
+    background: var(--bkg-color);
+  }
+
+  h1, p {
+        color: var(--text-color);
+  }
+

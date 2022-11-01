@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "jdgmnt-82b2b": {
+      "hosting": {
+        "jDgmnt": [
+          "jdgmnt-82b2b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "jdgmnt-82b2b"
+  }
+}
