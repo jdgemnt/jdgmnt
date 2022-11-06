@@ -1,24 +1,22 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, of } from 'rxjs';
+import {ThemePalette} from "@angular/material/core";
+import {State} from "./common/state";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'jDgmnt';
+
   sessions: Observable<any[]>;
 
-  value = 0;
 
-  constructor(firestore: AngularFirestore) {
+  constructor(firestore: AngularFirestore, public state: State) {
       this.sessions = firestore.collection('sessions').valueChanges();
   }
 
-  toggleDarkTheme(): void {
-    document.body.classList.toggle('dark-theme');
-  }
 
 }

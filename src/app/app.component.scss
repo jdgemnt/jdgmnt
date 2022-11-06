@@ -1,0 +1,46 @@
+:host {
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: row;
+
+  .jd-main {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: auto;
+    overflow: hidden;
+
+    .jd-main-top{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      flex: auto;
+
+      height: 75%;
+
+      .jd-left {
+        position: relative;
+        margin: 40px 40px 0 40px;
+        flex: 1;
+      }
+
+      .jd-right {
+        position: relative;
+        margin: 40px 40px 0 40px;
+        flex: 1;
+      }
+    }
+
+    .jd-main-bottom{
+      position: relative;
+      height: 25%;
+      margin-bottom: 40px;
+    }
+  }
+
+}

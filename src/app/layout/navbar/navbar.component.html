@@ -1,0 +1,13 @@
+<div class="jd-logo">jDgmnt</div>
+<button mat-icon-button *ngFor="let i of nav" [class.active]="i.active" [color]="i.active ? primaryColor : null"
+        [matTooltip]="i.tooltip"
+        matTooltipPosition="right"
+        matTooltipShowDelay="800"
+        (click)="navigate(i.title)">
+  <mat-icon>{{i.icon}}</mat-icon>
+</button>
+<div class="jd-avatars">
+  <div class="avatar one">mike</div>
+  <div class="avatar two">jimm</div>
+  <div class="avatar three">larry</div>
+</div>

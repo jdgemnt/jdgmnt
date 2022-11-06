@@ -1,16 +1,86 @@
+@use '@angular/material' as mat;
+
+@import "color-palettes";
+
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;700&display=swap');
 
 body {
-    --text-color: #aaa;
     --bkg-color: #293C4B;
-    --btn-txt-color: rgb(46, 43, 43);
-    --btn-bg-color: rgb(20, 211, 195);
+    --text-color: #8eb3bf;
+
+//    --btn-txt-color: rgb(46, 43, 43);
+//    --btn-bg-color: rgb(20, 211, 195);
+    user-select: none;
+    overflow: hidden;
 
     color: var(--text-color);
     background: var(--bkg-color);
+
+    padding: 0;
+    margin: 0;
+
+    font-family: 'Jura'!important;
   }
 
-  h1, p {
-        color: var(--text-color);
+  h1, h2, h3, p {
+    color: var(--text-color);
+    font-family: Jura!important;
   }
+
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary,
+.mat-flat-button.mat-accent,
+.mat-raised-button.mat-accent,
+.mat-fab.mat-accent,
+.mat-mini-fab.mat-accent,
+.mat-flat-button.mat-basic,
+.mat-raised-button.mat-basic,
+.mat-fab.mat-basic,
+.mat-mini-fab.mat-basic{
+  font-weight: lighter;
+  color: #000!important;
+  border-radius: 0;
+}
+
+.mat-flat-button.mat-basic,
+.mat-raised-button.mat-basic,
+.mat-fab.mat-basic,
+.mat-mini-fab.mat-basic {
+  color: #ff6c87!important;
+}
+
+.mat-tooltip {
+  padding: 20px!important;
+  font-size: .8rem!important;
+  font-weight: lighter!important;
+  color: #ff6c87 !important;
+  background-color: #293C4B!important;
+  box-shadow: 5px 5px 15px 0 #0000005f;
+}
+
+@include mat.all-component-themes($theme);
+
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0000003f;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8ddefc5f;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #8ddefcaf;
+}
+
 

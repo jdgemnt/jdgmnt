@@ -1,0 +1,31 @@
+<h2>Specialization rating</h2>
+<div class="jd-field" *ngFor="let s of (state.skills.val$ | async)">
+  <span>{{ s.title }}</span>
+  <mat-slider
+    color="primary"
+    max="5"
+    min="0"
+    step="1"
+    tickInterval="1"
+    thumbLabel
+    (valueChange)="onUpdateSkills()"
+    [(ngModel)]="s.value">
+  </mat-slider>
+</div>
+
+
+
+<h2>Frameworks rating</h2>
+<div class="jd-field" *ngFor="let s of (state.frameworks.val$ | async)">
+  <span>{{ s.title }}</span>
+  <mat-slider
+    color="primary"
+    max="5"
+    min="0"
+    step="1"
+    tickInterval="1"
+    thumbLabel
+    (valueChange)="onUpdateFrameworks()"
+    [(ngModel)]="s.value">
+  </mat-slider>
+</div>

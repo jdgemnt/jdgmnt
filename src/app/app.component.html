@@ -1,25 +1,7 @@
-<h1>Sessions</h1>
 
-<ul>
-  <li class="text" *ngFor="let s of sessions | async">
-    {{s.name}} - {{s.date.toMillis() | date}}  {{s.date.toMillis() | date:'HH:mm:ss'}}
-  </li>
-</ul>
+<app-navbar></app-navbar>
+<app-editor [class.on]="state.isEditMode.val$ | async"></app-editor>
+<app-main-stage></app-main-stage>
 
+<app-start-screen [class.entered]="state.hasEntered.val$ | async"></app-start-screen>
 
-<mat-slider
-  max="5"
-  min="0"
-  step="1"
-  thumbLabel
-  [(ngModel)]="value">
-</mat-slider>
-
-{{ value }}
-
-<br/>
-<button mat-raised-button color="primary" (click)="toggleDarkTheme()">Toggle dark theme</button>
-
-<div style="width: 700px">
-  <app-radar-chart></app-radar-chart>
-</div>

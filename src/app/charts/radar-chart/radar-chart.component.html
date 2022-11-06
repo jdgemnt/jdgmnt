@@ -1,0 +1,13 @@
+<h2>{{ title }}</h2>
+
+<div style="display: block; position: relative; width: 85%; margin-top: -70px" >
+  <canvas #chart="base-chart" baseChart
+          [legend]="false"
+          [data]="radarChartData"
+          [options]="radarChartOptions"
+          [title]=""
+          [type]="radarChartType"
+          (chartClick)="chartClicked($event)"
+  >
+  </canvas>
+</div>

@@ -14,12 +14,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgChartsModule } from 'ng2-charts';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
-import { RadarChartComponent } from './radar-chart/radar-chart.component';
+import { RadarChartComponent } from './charts/radar-chart/radar-chart.component';
+import {MatIconModule} from "@angular/material/icon";
+import { StartScreenComponent } from './layout/start-screen/start-screen.component';
+import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { EditorComponent } from './layout/editor/editor.component';
+import { MainStageComponent } from './layout/main-stage/main-stage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RadarChartComponent
+    RadarChartComponent,
+    StartScreenComponent,
+    BarChartComponent,
+    NavbarComponent,
+    EditorComponent,
+    MainStageComponent
   ],
   imports: [
     FormsModule,
@@ -32,7 +44,9 @@ import { RadarChartComponent } from './radar-chart/radar-chart.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatSliderModule,
-    NgChartsModule.forRoot({ generateColors: true, defaults: { borderColor: '#A8E8FD0e'  } } )
+    NgChartsModule.forRoot({generateColors: true, defaults: { borderColor: '#A8E8FD0F'}}),
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

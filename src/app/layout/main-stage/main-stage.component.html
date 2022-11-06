@@ -1,0 +1,23 @@
+<div class="jd-main-top">
+  <div class="jd-left">
+    <app-radar-chart [title]="'Specialization'"></app-radar-chart>
+  </div>
+  <div class="jd-right">
+    <app-radar-chart [title]="'Soft Skills'" ></app-radar-chart>
+  </div>
+</div>
+<div class="jd-main-bottom" >
+  <app-bar-chart></app-bar-chart>
+  <!--
+  <ul>
+    <li class="text" *ngFor="let s of sessions | async">
+      {{s.name}} - {{s.date.toMillis() | date}}  {{s.date.toMillis() | date:'HH:mm:ss'}}
+    </li>
+  </ul>
+
+
+  <button mat-raised-button color="primary" (click)="toggleDarkTheme()">Toggle dark theme</button>
+  <button mat-raised-button color="accent" (click)="toggleDarkTheme()">Toggle dark theme</button>
+  <button mat-raised-button color="basic" (click)="toggleDarkTheme()">Toggle dark theme</button>
+  -->
+</div>

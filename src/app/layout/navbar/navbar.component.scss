@@ -1,0 +1,129 @@
+:host {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 70px;
+
+  box-shadow: 0px -1px 14px 0px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0px -1px 14px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px -1px 14px 0px rgba(0,0,0,0.5);
+
+  background-color: #ffffff08;
+
+  > * {
+    margin: 0;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .mat-icon-button {
+    border-radius: 0;
+    width: 100%;
+
+    transition: background-color .3s;
+
+    &:hover{
+      background-color: #0000001f;
+    }
+
+    &.active {
+      background-color: #0000001f;
+    }
+  }
+
+
+  .jd-avatars {
+    flex: auto;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    .avatar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      font-size: .6rem;
+
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      margin: 5px 0;
+
+      color: #8ddefc;
+
+      border: 1px solid #293C4B;
+
+      transition: all .5s;
+
+
+      background-color: #0000001f;
+
+
+
+
+      &:hover{
+        color: #000;
+        background-color: #ff6c87cf;
+        box-shadow: inset 3px 3px 5px 0px #0000005f;
+        -webkit-box-shadow: inset  3px 3px 5px 0px #0000005f;
+        -moz-box-shadow: inset 3px 3px 5px 0px #0000005f;
+
+
+        &.one {
+          background-color: #ff6c87cf;
+        }
+
+        &.two {
+          background-color: #8ddefccf;
+        }
+
+        &.three {
+          background-color: #c9ff908f;
+        }
+      }
+
+
+    }
+  }
+
+  .jd-logo {
+
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-size: .6rem;
+    color: #8ddefc;
+
+    margin-bottom: 25px;
+    letter-spacing: 3px;
+
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 40px #0ff,
+      0 0 80px #0ff,
+      0 0 90px #0ff,
+      0 0 100px #0ff,
+      0 0 150px #0ff;
+
+
+  }
+}
+
+.jd-tooltip {
+  background: #b71c1c!important;
+}
