@@ -12,31 +12,69 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   &.entered {
     left: 101%;
   }
 
-
-  .shadow {
-
-    background-color: #293C4B;
-
-    border-radius: 50%;
+  .claim{
+    margin: 20px 0;
+    letter-spacing: 10px;
+    color: #000;
+    font-size: 1rem;
 
     transition: all .5s;
+  }
+
+
+  .info {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Jura;
+    letter-spacing: 1px;
+    font-style: italic;
+    font-size: .9rem;
+    font-weight: 100;
+    color: rgba(100, 138, 154, 0.77);
+    transition: all 1s;
+    transition-delay: 0s;
+    opacity: 0;
+
+    &.on{
+      opacity: 1;
+    }
+  }
+
+
+  .shadow {
+    background-color: #293C4B;
+    border-radius: 50%;
+    transition: all .5s;
+    cursor: pointer;
+
+    &:hover + span {
+      letter-spacing: 12px;
+      color: #ff6c878f;
+    }
+
+    &:hover + span + .info {
+      transition-delay: .3s;
+      opacity: 1;
+    }
 
     &:hover {
-
-      box-shadow: 0px -1px 54px 0px #8ddefc2f;
-      -webkit-box-shadow: 0px -1px 54px 0px #8ddefc2f;
-      -moz-box-shadow: 0px -1px 54px 0px #8ddefc2f;
+      box-shadow: 0px -1px 54px 0px #ff6c87af;
+      -webkit-box-shadow: 0px -1px 54px 0px #ff6c87af;
+      -moz-box-shadow: 0px -1px 54px 0px #ff6c87af;
     }
 
     &:active {
-      box-shadow: 0px -1px 54px 0px #ff6c878f;
-      -webkit-box-shadow: 0px -1px 54px 0px #ff6c878f;
-      -moz-box-shadow: 0px -1px 54px 0px #ff6c878f;
+      box-shadow: 0px -1px 74px 0px #8ddefc;
+      -webkit-box-shadow: 0px -1px 74px 0px #8ddefc;
+      -moz-box-shadow: 0px -1px 74px 0px #8ddefc;
     }
 
     .enter {
@@ -58,11 +96,28 @@
       -moz-box-shadow: 0px -1px 24px 0px rgba(0,0,0,0.5);
 
 
+      svg {
+        width: 40px;
+        z-index: 3;
+        opacity: .4;
+        margin-right: 10px;
+        margin-top: 10px;
+        transition: all .5s;
+
+        filter: drop-shadow(2px 2px 10px rgb(0 0 0 / .7));
+      }
+
+
     &:hover {
 
       box-shadow: 0px -1px 10px 0px rgba(0,0,0,0.8);
       -webkit-box-shadow: 0px -1px 10px 0px rgba(0,0,0,0.8);
       -moz-box-shadow: 0px -1px 10px 0px rgba(0,0,0,0.8);
+
+      svg {
+        fill: #ff6c87!important;
+        opacity: 1;
+      }
 
       .wave {
         top: -150px;
@@ -82,9 +137,16 @@
       */
 
 
+
       span {
         color: #ff6c87;
         text-shadow: #ff6c87af 0px 0px 16px;
+      }
+
+      svg {
+        fill: #8ddefc!important;
+        opacity: 1;
+        transform: rotate(45deg);
       }
 
 

@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
     flex: auto;
 
     height: 75%;
@@ -31,7 +32,7 @@
 
   .jd-main-bottom{
     position: relative;
-    height: 25%;
+    height: 35%;
     margin-bottom: 40px;
   }
 }

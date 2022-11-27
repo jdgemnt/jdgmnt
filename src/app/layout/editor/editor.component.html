@@ -1,31 +1,85 @@
-<h2>Specialization rating</h2>
-<div class="jd-field" *ngFor="let s of (state.skills.val$ | async)">
-  <span>{{ s.title }}</span>
-  <mat-slider
-    color="primary"
-    max="5"
-    min="0"
-    step="1"
-    tickInterval="1"
-    thumbLabel
-    (valueChange)="onUpdateSkills()"
-    [(ngModel)]="s.value">
-  </mat-slider>
+
+<div class="jd-headline">
+    <h2 class="front" [class]="headline.current.state">{{headline.current.title}}</h2>
+    <h2 class="back" [class]="headline.next.state">{{headline.next.title}}</h2>
 </div>
 
 
+<div class="jd-editor-view" #editor>
 
-<h2>Frameworks rating</h2>
-<div class="jd-field" *ngFor="let s of (state.frameworks.val$ | async)">
-  <span>{{ s.title }}</span>
-  <mat-slider
-    color="primary"
-    max="5"
-    min="0"
-    step="1"
-    tickInterval="1"
-    thumbLabel
-    (valueChange)="onUpdateFrameworks()"
-    [(ngModel)]="s.value">
-  </mat-slider>
+  <div class="jd-editor-group" [class]="areas.specialization.state">
+    <div class="jd-field" *ngFor="let s of specializedSkills">
+      <span>{{ s.title }}</span>
+      <mat-slider
+        color="primary"
+        max="5"
+        min="0"
+        step="1"
+        tickInterval="1"
+        thumbLabel
+        (valueChange)="state.updateSkills(specializedSkills)"
+        [(ngModel)]="s.value">
+      </mat-slider>
+    </div>
+  </div>
+
+
+  <div class="jd-editor-group" [class]="areas['soft skills'].state">
+    <div class="jd-field" *ngFor="let s of softSkills">
+      <span>{{ s.title }}</span>
+      <mat-slider
+        color="primary"
+        max="5"
+        min="0"
+        step="1"
+        tickInterval="1"
+        thumbLabel
+        (valueChange)="state.updateSoftSkills(softSkills)"
+        [(ngModel)]="s.value">
+      </mat-slider>
+    </div>
+  </div>
+
+  <div class="jd-editor-group" [class]="areas['tech-stack'].state">
+    <div class="jd-field" *ngFor="let s of frameworks">
+      <ng-container *ngIf="s.title">
+        <span>{{ s.title }}</span>
+        <mat-slider
+          color="primary"
+          max="5"
+          min="0"
+          step="1"
+          tickInterval="1"
+          thumbLabel
+          (valueChange)="state.updateFrameworks(frameworks)"
+          [(ngModel)]="s.value">
+        </mat-slider>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="jd-editor-group" [class]="areas['share'].state">
+    <div class="jd-field">
+
+      <div style="user-select: text!important;" [matTooltip]="url" matTooltipPosition="above">{{(url.length>30)? (url | slice:0:30)+'...':(url)}}</div>
+      <br/>
+      <button mat-raised-button color="basic" (click)="clipboardApi.copyFromContent(url)">copy url</button>
+      <br/>
+      <a mat-raised-button color="basic" [href]="'mailto:'">send mail</a>
+      <br/><br/>
+      <qr-code #qr [value]="url" [size]="'auto'"
+                darkColor="#90C0D3"
+                lightColor="#1E2C37"
+                [margin]="0"
+                centerImageSrc=""
+                errorCorrectionLevel="M"></qr-code>
+
+    </div>
+  </div>
+
+  <div class="jd-editor-group" [class]="areas['settings'].state">
+    <div class="jd-field">
+      <!-- <span>settings bla bla...</span> -->
+    </div>
+  </div>
 </div>

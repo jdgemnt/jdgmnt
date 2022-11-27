@@ -1,13 +1,13 @@
 <div class="jd-main-top">
   <div class="jd-left">
-    <app-radar-chart [title]="'Specialization'"></app-radar-chart>
+    <app-radar-chart [title]="'Specialization'" [rating]="sate.skillsRating"></app-radar-chart>
   </div>
   <div class="jd-right">
-    <app-radar-chart [title]="'Soft Skills'" ></app-radar-chart>
+    <app-polar-chart [title]="'Soft Skills'" [rating]="sate.softSkillsRating"></app-polar-chart>
   </div>
 </div>
 <div class="jd-main-bottom" >
-  <app-bar-chart></app-bar-chart>
+  <app-line-chart [rating]="sate.frameworksRating"></app-line-chart>
   <!--
   <ul>
     <li class="text" *ngFor="let s of sessions | async">

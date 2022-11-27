@@ -16,7 +16,7 @@
 
   transition: all .5s;
 
-  overflow-y: auto;
+
 
   &.on {
     width: 250px;
@@ -24,27 +24,99 @@
 
 
   > * {
-    margin: 2px 20px;
+    // margin: 2px 20px;
   }
 
-  h2 {
+  .jd-headline {
     padding-left: 7px;
     margin-top: 40px;
     margin-bottom: 70px;
+    margin-left: 20px;
+    overflow: hidden;
+
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      transition: left .7s ease-out, opacity .5s;
+      margin: 0;
+      opacity: 1;
+      left: 20px;
+
+      &.left {
+        left: -500px;
+        opacity: 0;
+      }
+
+      &.right {
+        left: 500px;
+        opacity: 0;
+      }
+    }
   }
 
-  .jd-field {
-    display: flex;
-    flex-direction: column;
+  .jd-editor-view {
+    position: relative;
+    height: 100%;
 
-    span {
+    display: block;
+
+
+    .jd-editor-group {
+
+      position: absolute;
+      transition: left .5s;
+      left: 0;
+      width: 100%;
       display: block;
-      padding-left: 7px;
-      margin-bottom: -12px;
-      opacity: .5;
-      color: #A8E8FD;
-      font-size: .8rem;
-      font-weight: lighter;
+      height: 100%;
+      overflow-y: auto;
+      padding-top: 20px;
+      z-index: 3;
+
+      &.left {
+        left: -500px;
+        overflow-y: hidden;
+      }
+
+      &.right {
+        left: 500px;
+        opacity: 0;
+        overflow-y: hidden;
+      }
+
+      .jd-field {
+        display: flex;
+        flex-direction: column;
+
+        position: relative;
+        left: 0;
+        top: 0;
+
+        margin: 0 20px;
+
+
+        span {
+          display: block;
+          padding-left: 7px;
+          margin-bottom: -12px;
+          opacity: .5;
+          color: #A8E8FD;
+          font-size: .7rem;
+          font-weight: lighter;
+          letter-spacing: .7px;
+        }
+      }
+    }
+
+
+
+  }
+
+
+  qr-code {
+    canvas {
+      width: 100%!important;
     }
   }
 }

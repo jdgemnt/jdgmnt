@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {State} from "../../common/state";
 
 @Component({
   selector: 'app-main-stage',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainStageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public sate:State) { }
 
   ngOnInit(): void {
   }

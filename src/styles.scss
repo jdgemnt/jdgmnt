@@ -27,6 +27,21 @@ body {
     font-family: Jura!important;
   }
 
+.text-primary{
+  color: #ff6c87;
+}
+
+.text-accent{
+  color: #8ddefc;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.normal {
+  font-style: normal;
+}
 
 .mat-flat-button.mat-primary,
 .mat-raised-button.mat-primary,
@@ -60,6 +75,38 @@ body {
   background-color: #293C4B!important;
   box-shadow: 5px 5px 15px 0 #0000005f;
 }
+
+.mat-tooltip-panel-left {
+  .mat-tooltip {
+    border-radius: 10px 0 0 10px;
+  }
+}
+
+.mat-tooltip-panel-right {
+  .mat-tooltip {
+    border-radius: 0 10px 10px 0;
+  }
+}
+
+
+.e-scale .e-tick.e-custom::before {
+  content: '\e967'!important;
+  position: absolute!important;
+}
+
+.mat-snack-bar-container {
+  font-size: .8rem!important;
+  font-weight: lighter!important;
+  color: #ff6c87 !important;
+  background-color: #293C4B!important;
+  box-shadow: 5px 5px 15px 0 #0000005f;
+}
+
+/*
+.mat-snack-bar-container.error {
+  color: #000 !important;
+  background-color: #ff6c87!important;
+}*/
 
 @include mat.all-component-themes($theme);
 

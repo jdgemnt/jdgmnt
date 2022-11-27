@@ -3,5 +3,9 @@
 <app-editor [class.on]="state.isEditMode.val$ | async"></app-editor>
 <app-main-stage></app-main-stage>
 
+<app-userbar></app-userbar>
+
 <app-start-screen [class.entered]="state.hasEntered.val$ | async"></app-start-screen>
+
+<router-outlet></router-outlet>
 
