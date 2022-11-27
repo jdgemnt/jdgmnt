@@ -7,6 +7,7 @@ import {Session, SessionError, sessionErrors, SessionInit, User} from "../model/
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {map, Observable, of, Subscription} from "rxjs";
 import {StorageService} from "./storage.service";
+import {LocalStorageService} from "./local-storage.service";
 
 
 @Injectable({
@@ -16,6 +17,8 @@ export class SessionService {
 
   constructor(
     private storage: StorageService,
+    private browserStorage: LocalStorageService,
+
     private state:State,
     private nameServiice: NameService,
     private firestore: AngularFirestore,
@@ -37,6 +40,9 @@ export class SessionService {
             this.storage.addUser(sessionId, session.me)
                         .then(() => {
                           this.state.hasSession.val = true;
+
+                          this.browserStorage.persistMe(sessionId, session.me);
+
                           resolve(sessionId);
                         });
       })
@@ -52,7 +58,10 @@ export class SessionService {
     if (this.state.sessionUsers.val.find(u => u.id === session.me.id)) {
       console.log(`me as user[${session.me.name} - ${session.me.id}] is already appended!`)
     } else {
-      this.storage.addUser(session.sessionID ?? '', session.me);
+      this.storage.addUser(session.sessionID ?? '', session.me)
+        .then(u => {
+          this.browserStorage.persistMe(session.sessionID ?? '', session.me);
+        })
     }
   }
 
@@ -91,7 +100,7 @@ export class SessionService {
           this._snackBar.open(sessionErrors.INVALID_SESSION.error, 'x', { panelClass: ['error']});
         }
 
-        const persistedUser = this.loadMe(sessionID);
+        const persistedUser = this.browserStorage.loadMe(sessionID);
 
         if (!persistedUser) {
           this.state.sessionInit.val.me = {
@@ -104,8 +113,6 @@ export class SessionService {
           this.state.sessionInit.val.me = persistedUser;
         }
 
-        if (sessionID) this.persistMe(sessionID, this.state.sessionInit.val.me);
-
         this.state.sessionInit.update();
         console.log('validate active session', doc.data())
 
@@ -114,20 +121,5 @@ export class SessionService {
   }
 
 
-  persistMe(sessionID: string, me: User) {
-    localStorage.setItem(`${sessionID}`, JSON.stringify(me));
-  }
 
-  loadMe(sessionID: string) {
-    if (!sessionID) return null;
-
-    const json = localStorage.getItem(`${sessionID}`);
-
-    try {
-      return json ? JSON.parse(json) : null;
-    }
-    catch (e) {
-      console.error('while loading user from local storage', e)
-    }
-  }
 }
