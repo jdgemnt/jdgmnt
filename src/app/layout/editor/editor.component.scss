@@ -52,6 +52,11 @@
         left: 500px;
         opacity: 0;
       }
+
+      &.out {
+        left: 600px;
+        opacity: 0;
+      }
     }
   }
 

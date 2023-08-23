@@ -74,12 +74,17 @@ export class EditorComponent implements OnInit, AfterViewInit {
         this.headline.current.state = '';
         this.headline.current.title = active;
 
-        this.headline.next.state = 'left';
+        this.headline.next.state = 'out';
+
+        timer(500).subscribe(() => { this.headline.next.state = 'left'; });
+
     } else {
-      this.headline.current.state = 'left';
+      this.headline.current.state = 'out';
 
       this.headline.next.title = active;
       this.headline.next.state = '';
+
+      timer(500).subscribe(() => { this.headline.current.state = 'left'; });
     }
 
   }
