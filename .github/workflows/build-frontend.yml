@@ -1,0 +1,53 @@
+name: Deploy frontend
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "ui/**"
+  workflow_dispatch:
+
+jobs:
+  frontend-build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.11.0]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.PRIVATE_PACKAGE_TOKEN }}
+
+      - name: Frontend - npm install
+        run: npm i --force
+        working-directory: ./ui
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Frontend - Build
+        run: npm run build:prod
+        working-directory: ./ui
+
+      - name: Frontend - Build the Docker image
+        run: |
+          docker build ./ui --file ./ui/Dockerfile --tag ghcr.io/jdgemnt/jdgmnt-frontend
+          docker push ghcr.io/jdgemnt/jdgmnt-frontend:latest
+  
+      - name: Deploy chart
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          event-type: deploy
+          repository: jdgemnt/infrastructure
+          token: ${{ secrets.PRIVATE_PACKAGE_TOKEN }}
+          client-payload: '{"chart": "jdgmnt-frontend"}'
