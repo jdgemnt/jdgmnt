@@ -36,7 +36,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Frontend - Build
-        run: npm run build:prod
+        run: npm run build
         working-directory: ./ui
 
       - name: Frontend - Build the Docker image
