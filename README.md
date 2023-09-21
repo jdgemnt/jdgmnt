@@ -4,9 +4,9 @@
 
 ```mermaid
 flowchart TD
-   A[start blanko '/'] --> B[create user session]
-   A --> C[create assessement session]
-   B --> D[join assessement session]
+   A[start blanko '/'] --> B[create user session \n USER_ID]
+   A --> C[create assessement session \n ASSESSEMENT_ID]
+   B --> D[join assessement session:  \n'/ASSESSEMENT_ID/USER_ID']
    C --> D
 ```
 
