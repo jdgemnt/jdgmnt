@@ -16,7 +16,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  A[start session '/ASSESSEMENT_ID/USER_ID'] --> B{is ASSESSEMENT_ID valid?};
+  A[join session '/ASSESSEMENT_ID/USER_ID'] --> B{is ASSESSEMENT_ID valid?};
   B -- YES --> C{is USER_ID valid?};
   B -- NO --> E[message invalid session + \n display create session button];
   C -- YES --> D[join session with ASSESSEMENT_ID !];
