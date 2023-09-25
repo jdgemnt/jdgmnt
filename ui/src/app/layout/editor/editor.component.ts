@@ -91,7 +91,6 @@ export class EditorComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     timer(500).subscribe(() => {
-      console.log('aaa', );
       (this.qrElm as QrCodeComponent).size = this.editorElm.nativeElement.offsetWidth - 40;
     });
   }

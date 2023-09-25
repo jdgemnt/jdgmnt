@@ -33,6 +33,8 @@ import { routes } from "./app.routes";
 import { SessionRegistrationComponent } from './session-registration.component';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from "@angular/material/snack-bar";
 import { SafeHtmlPipe } from './common/safe-html.pipe';
+import {SessionConnectorService} from "./services/session-connector/session-connector.service";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -52,6 +54,7 @@ import { SafeHtmlPipe } from './common/safe-html.pipe';
   imports: [
       FormsModule,
       BrowserModule,
+      HttpClientModule,
       AngularFireModule.initializeApp(environment.firebase),
       provideFirebaseApp(() => initializeApp(environment.firebase)),
       provideDatabase(() => getDatabase()),
